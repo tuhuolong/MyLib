@@ -65,4 +65,16 @@
         android:text="通用UI"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        android:text="对话框"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
 </LinearLayout>

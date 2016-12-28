@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.chenhao.lib.commonui.dialog.ProgressDialog;
 import com.chenhao.lib.plugin.frame.PluginRuntimeManager;
 import com.chenhao.lib.plugin.sdk.IMessageReceiver;
 
@@ -53,11 +54,21 @@ public class MainActivity extends AppCompatActivity {
                         IMessageReceiver.MSG_LAUNCH, new Bundle());
             }
         });
+
         findViewById(R.id.common_ui).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, CommonUIActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProgressDialog dialog = new ProgressDialog(mContext);
+                dialog.setMessage("测试");
+                dialog.show();
             }
         });
     }
