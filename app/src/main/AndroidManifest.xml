@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.chenhao.sample">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.chenhao.sample.app.MainApplication"
+        android:allowBackup="true"
+        android:label="MyLib"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".BannerActivity"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".NestedScrollActivity"
+            android:label="NestedScroll"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".TabFragmentActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+
+        <activity android:name=".CommonUIActivity"></activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.chenhao.sample.MainActivity">
+
+    <com.chenhao.lib.commonui.widget.SettingItemView
+        android:id="@+id/item_1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:item_icon="@drawable/setting_item_icon"
+        app:item_title="MainTitle"
+        app:item_type="type_none"
+        app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
+
+    <com.chenhao.lib.commonui.widget.SettingItemView
+        android:id="@+id/item_2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:item_icon="@drawable/setting_item_icon"
+        app:item_subtitle="subtitle"
+        app:item_title="MainTitle"
+        app:item_type="type_arrow"
+        app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
+
+    <com.chenhao.lib.commonui.widget.SettingItemView
+        android:id="@+id/item_3"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:item_icon="@drawable/setting_item_icon"
+        app:item_subtitle="subtitle"
+        app:item_title="MainTitle"
+        app:item_type="type_switch"></com.chenhao.lib.commonui.widget.SettingItemView>
+
+    <com.chenhao.lib.commonui.widget.SettingItemView
+        android:id="@+id/item_4"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:item_icon="@drawable/setting_item_icon"
+        app:item_select="true"
+        app:item_subtitle="subtitle"
+        app:item_title="MainTitle"
+        app:item_type="type_select"
+        app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
+
+
+    <com.chenhao.lib.commonui.widget.SettingItemView
+        android:id="@+id/item_5"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:item_icon="@drawable/setting_item_icon"
+        app:item_subtitle="subtitle"
+        app:item_title="MainTitle"
+        app:item_type="type_check"></com.chenhao.lib.commonui.widget.SettingItemView>
+
+</LinearLayout>
