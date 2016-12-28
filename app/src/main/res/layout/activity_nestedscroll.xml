@@ -7,7 +7,7 @@
     tools:context="com.chenhao.sample.MainActivity">
 
 
-    <com.chenhao.lib.nestedscroll.ParentScrollView
+    <com.chenhao.lib.commonui.nestedscroll.ParentScrollView
         android:id="@+id/parent_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,10 +25,10 @@
                 android:gravity="center"
                 android:textColor="@color/white" />
 
-            <com.chenhao.lib.nestedscroll.ChildWebView
+            <com.chenhao.lib.commonui.nestedscroll.ChildWebView
                 android:id="@+id/child_webview"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"></com.chenhao.lib.nestedscroll.ChildWebView>
+                android:layout_height="400dp"></com.chenhao.lib.commonui.nestedscroll.ChildWebView>
 
             <TextView
                 android:id="@+id/tv_2"
@@ -41,6 +41,6 @@
         </LinearLayout>
 
 
-    </com.chenhao.lib.nestedscroll.ParentScrollView>
+    </com.chenhao.lib.commonui.nestedscroll.ParentScrollView>
 
 </RelativeLayout>
