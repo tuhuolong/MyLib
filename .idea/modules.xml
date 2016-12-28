@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/MyLib.iml" filepath="$PROJECT_DIR$/MyLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/asynccallback/asynccallback.iml" filepath="$PROJECT_DIR$/asynccallback/asynccallback.iml" />
-      <module fileurl="file://$PROJECT_DIR$/banner/banner.iml" filepath="$PROJECT_DIR$/banner/banner.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-ui/common-ui.iml" filepath="$PROJECT_DIR$/common-ui/common-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/nestedscroll/nestedscroll.iml" filepath="$PROJECT_DIR$/nestedscroll/nestedscroll.iml" />

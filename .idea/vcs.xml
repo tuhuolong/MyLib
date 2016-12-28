@@ -3,7 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/asynccallback" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/banner" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/common" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/common-ui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/nestedscroll" vcs="Git" />

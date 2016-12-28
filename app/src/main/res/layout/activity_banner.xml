@@ -15,16 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="423dp">
 
-        <com.chenhao.lib.banner.BannerViewPager
+        <com.chenhao.lib.commonui.banner.BannerViewPager
             android:id="@+id/banner_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.chenhao.lib.banner.BannerViewPager>
+            android:layout_height="match_parent"></com.chenhao.lib.commonui.banner.BannerViewPager>
 
-        <com.chenhao.lib.banner.BannerPagerIndicator
+        <com.chenhao.lib.commonui.banner.BannerPagerIndicator
             android:id="@+id/banner_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"></com.chenhao.lib.banner.BannerPagerIndicator>
+            android:layout_gravity="bottom|right"></com.chenhao.lib.commonui.banner.BannerPagerIndicator>
 
     </FrameLayout>
 
