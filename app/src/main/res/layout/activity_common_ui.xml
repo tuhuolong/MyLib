@@ -8,11 +8,54 @@
     android:orientation="vertical"
     tools:context="com.chenhao.sample.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="导航栏标题——15sp #333333{TitleBarText}" />
+
+        <TextView
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="主标题——15sp #333333{TitleText}" />
+
+        <TextView
+            style="@style/SubTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="副标题——12sp #666666{SubTitleText}" />
+
+        <TextView
+            style="@style/PrimarySubTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="主要辅助内容——11sp #999999{PrimarySubTitleText}" />
+
+        <TextView
+            style="@style/SecondarySubTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="次要辅助内容——11sp #cccccc{SecondarySubTitleText}" />
+    </LinearLayout>
+
     <com.chenhao.lib.commonui.widget.SettingItemView
         android:id="@+id/item_1"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         app:item_icon="@drawable/setting_item_icon"
+        app:item_indicator_text="indicator text"
         app:item_title="MainTitle"
         app:item_type="type_none"
         app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
@@ -22,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         app:item_icon="@drawable/setting_item_icon"
+        app:item_indicator_text="indicator text"
         app:item_subtitle="subtitle"
         app:item_title="MainTitle"
         app:item_type="type_arrow"
@@ -56,5 +100,15 @@
         app:item_subtitle="subtitle"
         app:item_title="MainTitle"
         app:item_type="type_check"></com.chenhao.lib.commonui.widget.SettingItemView>
+
+    <com.chenhao.lib.commonui.widget.SettingInputItemView
+        android:id="@+id/item_6"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:item_icon="@drawable/setting_item_icon"
+        app:item_input_hint="Hint"
+        app:item_input_text="InputText"
+        app:item_input_title="Title"
+        app:item_input_type="type_none"></com.chenhao.lib.commonui.widget.SettingInputItemView>
 
 </LinearLayout>
