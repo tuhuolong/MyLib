@@ -3,6 +3,7 @@ package com.chenhao.sample.app;
 
 import android.app.Application;
 
+import com.chenhao.lib.plugin.frame.PluginManager;
 import com.chenhao.lib.plugin.frame.runtime.api.PluginApiImpl;
 
 /**
@@ -16,5 +17,9 @@ public class MainApplication extends Application {
         super.onCreate();
 
         new PluginApiImpl();
+
+        PluginManager.sAppContext = this;
+
+        PluginManager.getInstance();
     }
 }
