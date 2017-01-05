@@ -50,7 +50,7 @@
             android:text="次要辅助内容——11sp #cccccc{SecondarySubTitleText}" />
     </LinearLayout>
 
-    <com.chenhao.lib.commonui.widget.SettingItemView
+    <app.lib.commonui.widget.SettingItemView
         android:id="@+id/item_1"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -58,9 +58,9 @@
         app:item_indicator_text="indicator text"
         app:item_title="MainTitle"
         app:item_type="type_none"
-        app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
+        app:item_value="value"></app.lib.commonui.widget.SettingItemView>
 
-    <com.chenhao.lib.commonui.widget.SettingItemView
+    <app.lib.commonui.widget.SettingItemView
         android:id="@+id/item_2"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -69,18 +69,18 @@
         app:item_subtitle="subtitle"
         app:item_title="MainTitle"
         app:item_type="type_arrow"
-        app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
+        app:item_value="value"></app.lib.commonui.widget.SettingItemView>
 
-    <com.chenhao.lib.commonui.widget.SettingItemView
+    <app.lib.commonui.widget.SettingItemView
         android:id="@+id/item_3"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         app:item_icon="@drawable/setting_item_icon"
         app:item_subtitle="subtitle"
         app:item_title="MainTitle"
-        app:item_type="type_switch"></com.chenhao.lib.commonui.widget.SettingItemView>
+        app:item_type="type_switch"></app.lib.commonui.widget.SettingItemView>
 
-    <com.chenhao.lib.commonui.widget.SettingItemView
+    <app.lib.commonui.widget.SettingItemView
         android:id="@+id/item_4"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -89,19 +89,19 @@
         app:item_subtitle="subtitle"
         app:item_title="MainTitle"
         app:item_type="type_select"
-        app:item_value="value"></com.chenhao.lib.commonui.widget.SettingItemView>
+        app:item_value="value"></app.lib.commonui.widget.SettingItemView>
 
 
-    <com.chenhao.lib.commonui.widget.SettingItemView
+    <app.lib.commonui.widget.SettingItemView
         android:id="@+id/item_5"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         app:item_icon="@drawable/setting_item_icon"
         app:item_subtitle="subtitle"
         app:item_title="MainTitle"
-        app:item_type="type_check"></com.chenhao.lib.commonui.widget.SettingItemView>
+        app:item_type="type_check"></app.lib.commonui.widget.SettingItemView>
 
-    <com.chenhao.lib.commonui.widget.SettingInputItemView
+    <app.lib.commonui.widget.SettingInputItemView
         android:id="@+id/item_6"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -109,6 +109,6 @@
         app:item_input_hint="Hint"
         app:item_input_text="InputText"
         app:item_input_title="Title"
-        app:item_input_type="type_none"></com.chenhao.lib.commonui.widget.SettingInputItemView>
+        app:item_input_type="type_none"></app.lib.commonui.widget.SettingInputItemView>
 
 </LinearLayout>

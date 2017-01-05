@@ -7,9 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.chenhao.lib.tabfragment.TabFragmentAdapter;
-import com.chenhao.lib.tabfragment.TabFragmentChanged;
-import com.chenhao.lib.tabfragment.TabFragmentMainView;
+import app.lib.tabfragment.TabFragmentAdapter;
+import app.lib.tabfragment.TabFragmentChanged;
+import app.lib.tabfragment.TabFragmentMainView;
 
 /**
  * Created by chenhao on 16/12/22.
@@ -47,7 +47,7 @@ public class TabFragmentActivity extends FragmentActivity implements TabFragment
 
         mContext = this;
 
-        setContentView(com.chenhao.lib.tabfragment.R.layout.tabfragment_main);
+        setContentView(R.layout.tabfragment_main);
 
         mTabFragmentMainView = (TabFragmentMainView) findViewById(R.id.main);
 
