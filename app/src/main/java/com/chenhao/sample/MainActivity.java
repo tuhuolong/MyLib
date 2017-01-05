@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.chenhao.lib.commonui.dialog.ProgressDialog;
 import com.chenhao.lib.plugin.frame.PluginRuntimeManager;
 import com.chenhao.lib.plugin.sdk.IMessageReceiver;
+
+import app.lib.commonui.dialog.ProgressDialog;
 
 public class MainActivity extends AppCompatActivity {
 

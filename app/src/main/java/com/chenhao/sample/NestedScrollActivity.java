@@ -10,8 +10,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.chenhao.lib.commonui.nestedscroll.ChildWebView;
-import com.chenhao.lib.commonui.nestedscroll.ParentScrollView;
+import app.lib.commonui.nestedscroll.ChildWebView;
+import app.lib.commonui.nestedscroll.ParentScrollView;
 
 /**
  * Created by chenhao on 16/12/22.

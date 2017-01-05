@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.chenhao.lib.commonui.banner.BannerPagerAdapter;
-import com.chenhao.lib.commonui.banner.BannerPagerIndicator;
-import com.chenhao.lib.commonui.banner.BannerViewPager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import app.lib.commonui.banner.BannerPagerAdapter;
+import app.lib.commonui.banner.BannerPagerIndicator;
+import app.lib.commonui.banner.BannerViewPager;
 
 /**
  * Created by chenhao on 16/12/19.
