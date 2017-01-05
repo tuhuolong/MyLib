@@ -3,8 +3,8 @@ package com.chenhao.sample.app;
 
 import android.app.Application;
 
-import com.chenhao.lib.plugin.frame.PluginManager;
-import com.chenhao.lib.plugin.frame.runtime.api.PluginApiImpl;
+import app.lib.plugin.frame.PluginManager;
+import app.lib.plugin.frame.runtime.api.PluginApiImpl;
 
 /**
  * Created by chenhao on 16/12/24.
