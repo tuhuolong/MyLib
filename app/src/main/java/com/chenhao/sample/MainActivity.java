@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import app.lib.plugin.frame.PluginRuntimeManager;
-import app.lib.plugin.sdk.IMessageReceiver;
-
 import app.lib.commonui.dialog.ProgressDialog;
+import app.lib.plugin.frame.PluginApi;
+import app.lib.plugin.sdk.PluginMessageType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.plugin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PluginRuntimeManager.getInstance().sendMessage(mContext, 0,
-                        IMessageReceiver.MSG_LAUNCH, new Bundle());
+                PluginApi.getInstance().sendMessage(mContext, "id_1", PluginMessageType.LAUNCH,
+                        new Bundle());
             }
         });
 

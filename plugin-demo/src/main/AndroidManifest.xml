@@ -19,6 +19,10 @@
         <meta-data
             android:name="PluginDeveloperId"
             android:value="id_894148746" />
+        <!-- 消息处理入口，必须 -->
+        <meta-data
+            android:name="PluginMessageReceiver"
+            android:value="com.chenhao.plugin.demo.MessageReceiver" />
 
     </application>
 
