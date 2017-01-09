@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 project.ext.PLUGIN_SDK_HOME = "../plugin-sdk"
-
 project.ext.PLUGIN_MODULE_NAME = "plugin-demo"
 
 apply from: project.ext["PLUGIN_SDK_HOME"] + '/plugin.gradle'
@@ -14,8 +13,8 @@ android {
         applicationId "com.chenhao.plugin.demo"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

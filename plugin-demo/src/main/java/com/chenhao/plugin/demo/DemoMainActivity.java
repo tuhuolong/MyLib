@@ -6,6 +6,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import app.lib.plugin.sdk.activity.PluginBaseActivity;
 
@@ -23,6 +24,8 @@ public class DemoMainActivity extends PluginBaseActivity {
 
         setContentView(R.layout.activity_main);
 
+        ((TextView) findViewById(R.id.version)).setText(
+                getPluginContext().getPluginId() + ":" + getPluginContext().getVersionCode());
         mWebView = (WebView) findViewById(R.id.webview);
 
         initWebView();
