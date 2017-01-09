@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+project.ext.PLUGIN_SDK_HOME = "../plugin-sdk"
+
+project.ext.PLUGIN_MODULE_NAME = "plugin-demo"
+
+apply from: project.ext["PLUGIN_SDK_HOME"] + '/plugin.gradle'
+
 android {
     compileSdkVersion 24
     buildToolsVersion "25.0.0"
@@ -36,5 +42,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
 
-    provided files('../plugin-sdk/libs_ex/plugin-sdk.jar')
+    provided files(project.ext["PLUGIN_SDK_HOME"] + '/libs_ex/plugin-sdk.jar')
 }
