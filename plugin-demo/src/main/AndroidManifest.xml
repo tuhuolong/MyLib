@@ -10,7 +10,7 @@
         <!-- 插件Id，必须 -->
         <meta-data
             android:name="PluginId"
-            android:value="id_1" />
+            android:value="demo" />
         <!-- 最低版本ApiLevel，必须 -->
         <meta-data
             android:name="PluginMinApiLevel"
@@ -18,7 +18,7 @@
         <!-- 开发者Id, 必须 -->
         <meta-data
             android:name="PluginDeveloperId"
-            android:value="id_894148746" />
+            android:value="dev_1" />
         <!-- 消息处理入口，必须 -->
         <meta-data
             android:name="PluginMessageReceiver"

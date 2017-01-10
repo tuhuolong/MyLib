@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.plugin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PluginApi.getInstance().sendMessage(mContext, "id_1", PluginMsgType.LAUNCH,
+                PluginApi.getInstance().sendMessage(mContext, "demo", PluginMsgType.LAUNCH,
                         new Bundle());
             }
         });
