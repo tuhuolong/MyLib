@@ -15,6 +15,6 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Plugin.getInstance().start(this);
+        Plugin.getInstance().start(this, true);
     }
 }
