@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PluginApi.getInstance().sendMessage(mContext, "demo", PluginMsgType.LAUNCH,
-                        new Bundle());
+                        new Bundle(), new PluginApi.SendMessageCallback());
             }
         });
 

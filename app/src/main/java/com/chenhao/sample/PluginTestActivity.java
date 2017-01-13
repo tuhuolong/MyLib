@@ -29,7 +29,7 @@ public class PluginTestActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 PluginApi.getInstance().sendMessage(mContext, "demo", PluginMsgType.LAUNCH,
-                        new Bundle());
+                        new Bundle(), new PluginApi.SendMessageCallback());
             }
         });
     }
