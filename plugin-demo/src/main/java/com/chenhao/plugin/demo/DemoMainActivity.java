@@ -41,9 +41,6 @@ public class DemoMainActivity extends PluginBaseActivity {
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setDatabaseEnabled(true);
-        String dir = this.getApplicationContext()
-                .getDir("database", MODE_PRIVATE).getPath();
-        settings.setDatabasePath(dir);// 设置数据库路径
         settings.setDomStorageEnabled(true);// 使用LocalStorage则必须打开
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 
