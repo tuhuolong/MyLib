@@ -10,7 +10,6 @@
       <module fileurl="file://$PROJECT_DIR$/plugin-demo/plugin-demo.iml" filepath="$PROJECT_DIR$/plugin-demo/plugin-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugin-frame/plugin-frame.iml" filepath="$PROJECT_DIR$/plugin-frame/plugin-frame.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugin-sdk/plugin-sdk.iml" filepath="$PROJECT_DIR$/plugin-sdk/plugin-sdk.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tabfragment/tabfragment.iml" filepath="$PROJECT_DIR$/tabfragment/tabfragment.iml" />
     </modules>
   </component>
 </project>

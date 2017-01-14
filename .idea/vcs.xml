@@ -7,6 +7,5 @@
     <mapping directory="$PROJECT_DIR$/common-ui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/plugin-frame" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/plugin-sdk" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/tabfragment" vcs="Git" />
   </component>
 </project>

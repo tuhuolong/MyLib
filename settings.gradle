@@ -1,1 +1,1 @@
-include ':app', ':common', ':asynccallback', ':tabfragment', ':plugin-frame', ':plugin-sdk', ':plugin-demo', ':common-ui'
+include ':app', ':common', ':asynccallback', ':plugin-frame', ':plugin-sdk', ':plugin-demo', ':common-ui'
