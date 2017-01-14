@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tabfragment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, TabFragmentActivity.class);
+                Intent intent = new Intent(mContext, TabFragmentTestActivity.class);
                 startActivity(intent);
             }
         });

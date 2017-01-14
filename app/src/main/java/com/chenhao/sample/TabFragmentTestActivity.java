@@ -7,15 +7,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import app.lib.tabfragment.TabFragmentAdapter;
-import app.lib.tabfragment.TabFragmentChanged;
-import app.lib.tabfragment.TabFragmentMainView;
+import app.lib.commonui.tabfragment.TabFragmentAdapter;
+import app.lib.commonui.tabfragment.TabFragmentChanged;
+import app.lib.commonui.tabfragment.TabFragmentMainView;
 
 /**
  * Created by chenhao on 16/12/22.
  */
 
-public class TabFragmentActivity extends FragmentActivity implements TabFragmentChanged {
+public class TabFragmentTestActivity extends FragmentActivity implements TabFragmentChanged {
 
     private static final int[] TAB_TITLE = new int[] {
             R.string.tab_main,
