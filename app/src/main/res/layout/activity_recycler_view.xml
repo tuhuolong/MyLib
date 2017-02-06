@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.chenhao.sample.MainActivity">
+
+
+    <app.lib.commonui.widget.TitleBar
+        android:id="@+id/title_bar"
+        style="@style/TitleBar"
+        app:leftImage="@drawable/title_bar_left_back"></app.lib.commonui.widget.TitleBar>
+
+
+    <in.srain.cube.views.ptr.PtrFrameLayout
+        android:id="@+id/ptr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <app.lib.commonui.ptr.PtrHeader
+            android:id="@+id/ptr_header"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"></app.lib.commonui.ptr.PtrHeader>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </in.srain.cube.views.ptr.PtrFrameLayout>
+
+</LinearLayout>
