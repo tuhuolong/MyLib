@@ -22,7 +22,7 @@ public class PtrActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_recycler_view);
+        setContentView(R.layout.activity_ptr);
 
         mPtrIndicator = new PtrIndicator();
 
