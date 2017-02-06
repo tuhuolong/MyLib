@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/asynccallback/asynccallback.iml" filepath="$PROJECT_DIR$/asynccallback/asynccallback.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-ui/common-ui.iml" filepath="$PROJECT_DIR$/common-ui/common-ui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/plugin-demo/plugin-demo.iml" filepath="$PROJECT_DIR$/plugin-demo/plugin-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugin-frame/plugin-frame.iml" filepath="$PROJECT_DIR$/plugin-frame/plugin-frame.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugin-sdk/plugin-sdk.iml" filepath="$PROJECT_DIR$/plugin-sdk/plugin-sdk.iml" />
     </modules>

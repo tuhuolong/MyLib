@@ -7,12 +7,3 @@
 /build
 /captures
 .externalNativeBuild
-
-/asynccallback
-/banner
-/common
-/common-ui
-/nestedscroll
-/plugin-frame
-/plugin-sdk
-/tabfragment
