@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
+import app.lib.commonui.ptr.PtrHeader;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.indicator.PtrIndicator;
@@ -27,6 +28,8 @@ public class PtrActivity extends FragmentActivity {
         mPtrIndicator = new PtrIndicator();
 
         mPtrFrameLayout = (PtrFrameLayout) findViewById(R.id.ptr);
+        PtrHeader header = (PtrHeader) findViewById(R.id.ptr_header);
+        mPtrFrameLayout.addPtrUIHandler(header);
         mPtrFrameLayout.setPtrIndicator(mPtrIndicator);
         mPtrFrameLayout.setResistance(1.7f);
         mPtrFrameLayout.setRatioOfHeaderHeightToRefresh(1.2f);

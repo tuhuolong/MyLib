@@ -5,7 +5,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewParent;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
@@ -64,11 +63,6 @@ public class PtrHeader extends FrameLayout implements PtrUIHandler {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-
-        ViewParent parent = getParent();
-        if (parent != null) {
-            ((PtrFrameLayout) parent).addPtrUIHandler(this);
-        }
     }
 
     public void setRotateAniTime(int time) {

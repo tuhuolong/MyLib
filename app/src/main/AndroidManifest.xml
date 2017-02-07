@@ -46,14 +46,20 @@
 
         <activity android:name=".PluginTestActivity"></activity>
 
-        <activity android:name=".PtrActivity"></activity>
-
-        <activity android:name=".recyclerview.RecyclerViewActivity">
+        <activity android:name=".PtrActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".recyclerview.RecyclerViewActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
     </application>
