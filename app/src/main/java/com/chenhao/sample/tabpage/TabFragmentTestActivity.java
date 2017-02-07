@@ -1,11 +1,13 @@
 
-package com.chenhao.sample;
+package com.chenhao.sample.tabpage;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+
+import com.chenhao.sample.R;
 
 import app.lib.commonui.tabfragment.TabFragmentAdapter;
 import app.lib.commonui.tabfragment.TabFragmentChanged;
@@ -61,7 +63,13 @@ public class TabFragmentTestActivity extends FragmentActivity implements TabFrag
 
         @Override
         public Fragment getFragment(int position) {
-            return new Fragment();
+            if (position == 0) {
+                return new MainFragment();
+            } else if (position == 1) {
+                return new PersonalFragment();
+            } else {
+                return new Fragment();
+            }
         }
 
         @Override
