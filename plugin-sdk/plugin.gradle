@@ -1,0 +1,94 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+def jarName = 'plugin-sdk.jar'
+task clearPluginSdkJar(type: Delete) << {
+    delete "${project.buildDir}/../libs_ex/" + jarName
+}
+
+task copyPluginSdkJar() << {
+    copy {
+        from(project.ext["PLUGIN_SDK_HOME"] + "/build/intermediates/bundles/release/")
+        into(project.ext["PLUGIN_SDK_HOME"] + "/libs_ex/")
+        include('classes.jar')
+        rename('classes.jar', jarName)
+    }
+}
+
+project.afterEvaluate {
+    clearPluginSdkJar.dependsOn(':plugin-sdk:assembleRelease');
+    copyPluginSdkJar.dependsOn(clearPluginSdkJar);
+    preBuild.dependsOn(copyPluginSdkJar);
+
+
+    runPlugin.dependsOn(copyPluginSdkJar, ':' + project.ext["PLUGIN_MODULE_NAME"] + ':assembleDebug');
+}
+
+
+def String getApkNamePrefix() {
+    return project.ext["PLUGIN_MODULE_NAME"] + "_" + android.defaultConfig.versionCode + "_" + android.defaultConfig.versionName + "_";
+}
+
+
+project.ext.outputApkDirSwap = new HashSet<String>();
+
+android {
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def defaultOutputFile = output.outputFile
+            if (defaultOutputFile != null && defaultOutputFile.name.endsWith('.apk')) {
+                def newFileName = getApkNamePrefix() + variant.buildType.name + ".apk"; ;
+                output.outputFile = new File(defaultOutputFile.parent, newFileName)
+
+                outputApkDirSwap.add(output.splitFolder);
+            }
+        }
+    }
+}
+
+
+task runPlugin() << {
+    Properties properties = new Properties()
+    File localProps = project.rootProject.file("local.properties")
+    def sdkDir
+    if (localProps.exists()) {
+        properties.load(localProps.newDataInputStream())
+        sdkDir = properties.getProperty("sdk.dir")
+    } else {
+        sdkDir = System.getenv("ANDROID_HOME")
+    }
+    if (sdkDir) {
+        def adbCmd = "${sdkDir}/platform-tools/adb"
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            adbCmd = "${sdkDir}\\platform-tools\\adb"
+        }
+        def stdout = new ByteArrayOutputStream()
+
+        def dir = outputApkDirSwap.getAt(0).toString();
+        def outputApkFile = dir + "/" + getApkNamePrefix() + "debug.apk";
+
+        def outSdcardDebugFile = "/sdcard/AppLibPlugin/plugin/debug/" + getApkNamePrefix() + "debug.apk";
+        project.exec {
+            commandLine adbCmd,
+                    "push",
+                    outputApkFile,
+                    outSdcardDebugFile
+            standardOutput = stdout
+        }
+        def error = stdout.toString().trim()
+        if (error) {
+            println "install push error:" + error
+        }
+
+
+        project.exec {
+            commandLine adbCmd,
+                    "shell",
+                    "am broadcast -a app.lib.plugin.action.OPEN_API --es type plugin_debug --es sub_type debug_package --es apk_path ${outSdcardDebugFile}"
+        }
+
+    } else {
+        println "not found android sdk dir"
+    }
+}
+
+
