@@ -1,5 +1,5 @@
 
-package com.chenhao.sample.tabpage;
+package com.chenhao.sample.tabfragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,14 +10,14 @@ import android.support.v4.app.FragmentActivity;
 import com.chenhao.sample.R;
 
 import app.lib.commonui.tabfragment.TabFragmentAdapter;
-import app.lib.commonui.tabfragment.TabFragmentChanged;
+import app.lib.commonui.tabfragment.TabChangedListener;
 import app.lib.commonui.tabfragment.TabFragmentMainView;
 
 /**
  * Created by chenhao on 16/12/22.
  */
 
-public class TabFragmentTestActivity extends FragmentActivity implements TabFragmentChanged {
+public class TabFragmentTestActivity extends FragmentActivity implements TabChangedListener {
 
     private static final int[] TAB_TITLE = new int[] {
             R.string.tab_main,

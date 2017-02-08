@@ -33,7 +33,7 @@
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".tabpage.TabFragmentTestActivity"
+            android:name=".tabfragment.TabFragmentTestActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
@@ -55,6 +55,14 @@
         </activity>
 
         <activity android:name=".recyclerview.RecyclerViewActivity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name=".tabpager.TabPagerTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

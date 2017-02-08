@@ -1,41 +1,42 @@
 
-package app.lib.commonui.tabfragment;
+package app.lib.commonui.tabpager;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.lib.commonui.R;
+import app.lib.commonui.tabfragment.TabChangedListener;
 
 /**
- * Created by chenhao on 17/1/14.
+ * Created by chenhao on 17/2/8.
  */
 
-public class TabFragmentMainView extends LinearLayout implements View.OnClickListener {
+public class TabPagerLayout extends LinearLayout implements View.OnClickListener {
 
-    FrameLayout mFragmentContainer;
+    ViewPager mViewPager;
     LinearLayout mIndicatorView;
-    TabFragmentAdapter mTabFragmentAdapter;
     FragmentManager mFragmentManager;
+    TabPagerAdapter mTabPagerAdapter;
+
+    boolean mSmoothScroll = true;
 
     int mCurrentIndex = -1;
     View mCurrentView = null;
 
-    TabChangedListener mTabFragmentChanged;
+    TabChangedListener mTabChangedListener;
 
     LayoutInflater mLayoutInflater;
 
-    public TabFragmentMainView(Context context, AttributeSet attrs) {
+    public TabPagerLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -43,23 +44,43 @@ public class TabFragmentMainView extends LinearLayout implements View.OnClickLis
     protected void onFinishInflate() {
         super.onFinishInflate();
         mLayoutInflater = LayoutInflater.from(getContext());
-        mFragmentContainer = (FrameLayout) findViewById(R.id.fragment_container);
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mIndicatorView = (LinearLayout) findViewById(R.id.indicator);
     }
 
-    public void setTabFragmentChanged(TabChangedListener tabFragmentChanged) {
-        mTabFragmentChanged = tabFragmentChanged;
+    public void setTabChangedListener(TabChangedListener tabChangedListener) {
+        mTabChangedListener = tabChangedListener;
     }
 
-    public void init(FragmentManager fragmentManager, TabFragmentAdapter adapter) {
+    public void init(FragmentManager fragmentManager, TabPagerAdapter adapter) {
         mFragmentManager = fragmentManager;
-        mTabFragmentAdapter = adapter;
+        mTabPagerAdapter = adapter;
+
+        mViewPager.setAdapter(mTabPagerAdapter);
+        mViewPager.addOnPageChangeListener(
+                new android.support.v4.view.ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset,
+                            int positionOffsetPixels) {
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        setCurrentView(position);
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
 
         mIndicatorView.removeAllViews();
-        for (int i = 0; i < mTabFragmentAdapter.getCount(); i++) {
-            CharSequence pageTitle = mTabFragmentAdapter.getTabTitle(i);
-            int pageIcon = mTabFragmentAdapter.getTabIcon(i);
-            int pageTitleColor = mTabFragmentAdapter.getTabTitleColor(i);
+        for (int i = 0; i < mTabPagerAdapter.getCount(); i++) {
+            CharSequence pageTitle = mTabPagerAdapter.getTabTitle(i);
+            int pageIcon = mTabPagerAdapter.getTabIcon(i);
+            int pageTitleColor = mTabPagerAdapter.getTabTitleColor(i);
             if (pageTitleColor == 0) {
                 pageTitleColor = R.color.tabfragment_tab_text_default_color;
             }
@@ -71,6 +92,33 @@ public class TabFragmentMainView extends LinearLayout implements View.OnClickLis
         } else {
             setCurrentView(mCurrentView);
         }
+    }
+
+    /**
+     * 是否允许侧滑
+     * 
+     * @param enabled
+     */
+    public void setPagingEnabled(boolean enabled) {
+        mViewPager.setPagingEnabled(enabled);
+    }
+
+    /**
+     * 滑动动画
+     * 
+     * @param smoothScroll
+     */
+    public void setSmoothScroll(boolean smoothScroll) {
+        mSmoothScroll = smoothScroll;
+    }
+
+    /**
+     * ViewPager边缘阴影
+     * 
+     * @param overScrollMode
+     */
+    public void setPagerOverScrollMode(int overScrollMode) {
+        mViewPager.setOverScrollMode(overScrollMode);
     }
 
     void addTabView(int index, CharSequence title, int resIcon, int color) {
@@ -97,7 +145,7 @@ public class TabFragmentMainView extends LinearLayout implements View.OnClickLis
     }
 
     public void setCurrentView(int index) {
-        if (index >= 0 && index < mTabFragmentAdapter.getCount()) {
+        if (index >= 0 && index < mTabPagerAdapter.getCount()) {
             setCurrentView(mIndicatorView.getChildAt(index));
         }
     }
@@ -107,39 +155,19 @@ public class TabFragmentMainView extends LinearLayout implements View.OnClickLis
             return;
         Object object = view.getTag();
         if (object != null && object instanceof Tag) {
-            int lastIndex = -1;
-            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-
+            int lastIndex = mCurrentIndex;
             if (mCurrentView != null) {
                 mCurrentView.setSelected(false);
-                Tag oldTag = (Tag) mCurrentView.getTag();
-                lastIndex = oldTag.index;
-                Fragment oldFragment = getFragment(oldTag.index);
-                if (oldFragment != null) {
-                    fragmentTransaction.hide(oldFragment);
-                    oldFragment.onPause();
-                    oldFragment.onStop();
-                }
             }
+
+            mCurrentIndex = ((Tag) object).index;
             mCurrentView = view;
             mCurrentView.setSelected(true);
-            Tag tag = (Tag) object;
-            mCurrentIndex = tag.index;
-            Fragment newFragment = getFragment(tag.index);
-            if (newFragment != null) {
-                newFragment.onStart();
-                newFragment.onResume();
-                fragmentTransaction.show(newFragment);
-            } else {
-                newFragment = mTabFragmentAdapter.getFragment(tag.index);
-                fragmentTransaction.add(mFragmentContainer.getId(), newFragment,
-                        getFragmentTag(tag.index));
-            }
 
-            fragmentTransaction.commit();
+            mViewPager.setCurrentItem(mCurrentIndex, mSmoothScroll);
 
-            if (mTabFragmentChanged != null) {
-                mTabFragmentChanged.onFragmentChanged(lastIndex, mCurrentIndex);
+            if (mTabChangedListener != null) {
+                mTabChangedListener.onFragmentChanged(lastIndex, mCurrentIndex);
             }
         }
     }

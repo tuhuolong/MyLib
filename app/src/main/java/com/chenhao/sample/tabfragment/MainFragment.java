@@ -1,5 +1,5 @@
 
-package com.chenhao.sample.tabpage;
+package com.chenhao.sample.tabfragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
