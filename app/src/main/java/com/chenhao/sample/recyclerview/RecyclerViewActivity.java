@@ -14,6 +14,10 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.lib.commonui.recyclerview.DividerItemDecoration;
+
+import static app.lib.commonui.recyclerview.DividerItemDecoration.DIVIDER_CONDITION_EITHER;
+
 /**
  * Created by chenhao on 17/2/6.
  */
@@ -37,6 +41,9 @@ public class RecyclerViewActivity extends FragmentActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerViewAdapter = new RecyclerViewAdapter();
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(
+                getResources().getDrawable(R.drawable.recycler_view_divider), 1,
+                DIVIDER_CONDITION_EITHER));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         List<ViewData> viewDataList = new ArrayList<>();
@@ -50,10 +57,12 @@ public class RecyclerViewActivity extends FragmentActivity {
                 "http://static.home.mi.com/app/shop/img?id=shop_6b11ba2758ba9f3b578522eb15b211af.jpg&w=1080&h=1080");
         type1ViewData.urlList = urlList;
         viewDataList.add(type1ViewData);
-        Type2ViewData type2ViewData = new Type2ViewData();
-        type2ViewData.title = "Title";
-        type2ViewData.next = "http://www.baidu.com";
-        viewDataList.add(type2ViewData);
+
+        for (int i = 0; i < 25; i++) {
+            Type2ViewData type2ViewData = new Type2ViewData();
+            type2ViewData.title = "Title" + i;
+            viewDataList.add(type2ViewData);
+        }
 
         mRecyclerViewAdapter.updateData(viewDataList);
     }
@@ -64,4 +73,5 @@ public class RecyclerViewActivity extends FragmentActivity {
 
         Fresco.shutDown();
     }
+
 }
