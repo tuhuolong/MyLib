@@ -1,5 +1,5 @@
 
-package app.lib.commonui.tabfragment;
+package app.lib.commonui.tabfragmentnoslide;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -21,21 +21,21 @@ import app.lib.commonui.R;
  * Created by chenhao on 17/1/14.
  */
 
-public class TabFragmentMainView extends LinearLayout implements View.OnClickListener {
+public class TabFragmentMainViewNoSlide extends LinearLayout implements View.OnClickListener {
 
     FrameLayout mFragmentContainer;
     LinearLayout mIndicatorView;
-    TabFragmentAdapter mTabFragmentAdapter;
+    TabFragmentAdapterNoSlide mTabFragmentAdapter;
     FragmentManager mFragmentManager;
 
     int mCurrentIndex = -1;
     View mCurrentView = null;
 
-    TabChangedListener mTabFragmentChanged;
+    TabChangedListenerNoSlide mTabFragmentChanged;
 
     LayoutInflater mLayoutInflater;
 
-    public TabFragmentMainView(Context context, AttributeSet attrs) {
+    public TabFragmentMainViewNoSlide(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -47,11 +47,11 @@ public class TabFragmentMainView extends LinearLayout implements View.OnClickLis
         mIndicatorView = (LinearLayout) findViewById(R.id.indicator);
     }
 
-    public void setTabFragmentChanged(TabChangedListener tabFragmentChanged) {
+    public void setTabFragmentChanged(TabChangedListenerNoSlide tabFragmentChanged) {
         mTabFragmentChanged = tabFragmentChanged;
     }
 
-    public void init(FragmentManager fragmentManager, TabFragmentAdapter adapter) {
+    public void init(FragmentManager fragmentManager, TabFragmentAdapterNoSlide adapter) {
         mFragmentManager = fragmentManager;
         mTabFragmentAdapter = adapter;
 

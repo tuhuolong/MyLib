@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<app.lib.commonui.tabfragment.TabFragmentMainView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+<app.lib.commonui.tabfragment.TabFragmentLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <app.lib.commonui.tabfragment.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"></app.lib.commonui.tabfragment.ViewPager>
 
     <View
         android:layout_width="match_parent"
@@ -25,4 +25,4 @@
         android:orientation="horizontal"
         android:paddingLeft="7dp"
         android:paddingRight="7dp" />
-</app.lib.commonui.tabfragment.TabFragmentMainView>
+</app.lib.commonui.tabfragment.TabFragmentLayout>

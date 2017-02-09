@@ -1,41 +1,44 @@
 
-package com.chenhao.sample.tabpager;
+package com.chenhao.sample.tabfragmentnoslide;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 
 import com.chenhao.sample.R;
 import com.chenhao.sample.tabfragment.MainFragment;
 import com.chenhao.sample.tabfragment.PersonalFragment;
 
-import app.lib.commonui.tabfragment.TabChangedListener;
-import app.lib.commonui.tabpager.TabPagerAdapter;
-import app.lib.commonui.tabpager.TabPagerLayout;
-
-import static android.view.View.OVER_SCROLL_NEVER;
+import app.lib.commonui.tabfragmentnoslide.TabChangedListenerNoSlide;
+import app.lib.commonui.tabfragmentnoslide.TabFragmentAdapterNoSlide;
+import app.lib.commonui.tabfragmentnoslide.TabFragmentMainViewNoSlide;
 
 /**
- * Created by chenhao on 17/2/8.
+ * Created by chenhao on 16/12/22.
  */
 
-public class TabPagerTestActivity extends FragmentActivity implements TabChangedListener {
+public class TabFragmentNoSlideTestActivity extends FragmentActivity implements TabChangedListenerNoSlide {
+
     private static final int[] TAB_TITLE = new int[] {
             R.string.tab_main,
             R.string.tab_profile,
     };
+
     private static final int[] TAB_TITLE_COLOR = new int[] {
             R.color.tab_text_color,
             R.color.tab_text_color
     };
+
     private static final int[] TAB_ICON = new int[] {
             R.drawable.tab_main,
             R.drawable.tab_profile,
     };
-    TabPagerLayout mTabPagerLayout;
-    MainAdapter mMainAdapter;
+
+    Context mContext;
+    TabFragmentMainViewNoSlide mTabFragmentMainView;
+    TabFragmentAdapterNoSlide mTabFragmentAdapter;
 
     @Override
     public void onFragmentChanged(int lastIndex, int currentIndex) {
@@ -46,26 +49,22 @@ public class TabPagerTestActivity extends FragmentActivity implements TabChanged
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.tab_pager_layout);
+        mContext = this;
 
-        mTabPagerLayout = (TabPagerLayout) findViewById(R.id.tab_pager);
+        setContentView(R.layout.tab_fragment_no_slide_layout);
 
-        mMainAdapter = new MainAdapter(getSupportFragmentManager());
+        mTabFragmentMainView = (TabFragmentMainViewNoSlide) findViewById(R.id.main);
 
-        mTabPagerLayout.init(getSupportFragmentManager(), mMainAdapter);
-        mTabPagerLayout.setTabChangedListener(this);
-        mTabPagerLayout.setPagingEnabled(true);
-        mTabPagerLayout.setSmoothScroll(false);
-        mTabPagerLayout.setPagerOverScrollMode(OVER_SCROLL_NEVER);
+        mTabFragmentAdapter = new TabFragmentMainAdapter();
+
+        mTabFragmentMainView.init(getSupportFragmentManager(), mTabFragmentAdapter);
+        mTabFragmentMainView.setTabFragmentChanged(this);
     }
 
-    class MainAdapter extends TabPagerAdapter {
-        public MainAdapter(FragmentManager fm) {
-            super(fm);
-        }
+    class TabFragmentMainAdapter extends TabFragmentAdapterNoSlide {
 
         @Override
-        public Fragment getItem(int position) {
+        public Fragment getFragment(int position) {
             if (position == 0) {
                 return new MainFragment();
             } else if (position == 1) {

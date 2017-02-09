@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.chenhao.sample.tabfragment.TabFragmentTestActivity;
+import com.chenhao.sample.tabfragmentnoslide.TabFragmentNoSlideTestActivity;
 
 import app.lib.commonui.dialog.ProgressDialog;
 import app.lib.plugin.frame.PluginApi;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tabfragment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, TabFragmentTestActivity.class);
+                Intent intent = new Intent(mContext, TabFragmentNoSlideTestActivity.class);
                 startActivity(intent);
             }
         });

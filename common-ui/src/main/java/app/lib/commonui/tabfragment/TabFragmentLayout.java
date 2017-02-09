@@ -1,5 +1,5 @@
 
-package app.lib.commonui.tabpager;
+package app.lib.commonui.tabfragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -14,18 +14,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.lib.commonui.R;
-import app.lib.commonui.tabfragment.TabChangedListener;
 
 /**
  * Created by chenhao on 17/2/8.
  */
 
-public class TabPagerLayout extends LinearLayout implements View.OnClickListener {
+public class TabFragmentLayout extends LinearLayout implements View.OnClickListener {
 
     ViewPager mViewPager;
     LinearLayout mIndicatorView;
     FragmentManager mFragmentManager;
-    TabPagerAdapter mTabPagerAdapter;
+    TabFragmentAdapter mTabFragmentAdapter;
 
     boolean mSmoothScroll = true;
 
@@ -36,7 +35,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
 
     LayoutInflater mLayoutInflater;
 
-    public TabPagerLayout(Context context, AttributeSet attrs) {
+    public TabFragmentLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -56,11 +55,11 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
         mTabChangedListener = tabChangedListener;
     }
 
-    public void init(FragmentManager fragmentManager, TabPagerAdapter adapter) {
+    public void init(FragmentManager fragmentManager, TabFragmentAdapter adapter) {
         mFragmentManager = fragmentManager;
-        mTabPagerAdapter = adapter;
+        mTabFragmentAdapter = adapter;
 
-        mViewPager.setAdapter(mTabPagerAdapter);
+        mViewPager.setAdapter(mTabFragmentAdapter);
         mViewPager.addOnPageChangeListener(
                 new android.support.v4.view.ViewPager.OnPageChangeListener() {
                     @Override
@@ -81,10 +80,10 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
                 });
 
         mIndicatorView.removeAllViews();
-        for (int i = 0; i < mTabPagerAdapter.getCount(); i++) {
-            CharSequence pageTitle = mTabPagerAdapter.getTabTitle(i);
-            int pageIcon = mTabPagerAdapter.getTabIcon(i);
-            int pageTitleColor = mTabPagerAdapter.getTabTitleColor(i);
+        for (int i = 0; i < mTabFragmentAdapter.getCount(); i++) {
+            CharSequence pageTitle = mTabFragmentAdapter.getTabTitle(i);
+            int pageIcon = mTabFragmentAdapter.getTabIcon(i);
+            int pageTitleColor = mTabFragmentAdapter.getTabTitleColor(i);
             if (pageTitleColor == 0) {
                 pageTitleColor = R.color.tabfragment_tab_text_default_color;
             }
@@ -149,7 +148,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
     }
 
     public void setCurrentItem(int index) {
-        if (index >= 0 && index < mTabPagerAdapter.getCount()) {
+        if (index >= 0 && index < mTabFragmentAdapter.getCount()) {
             setCurrentView(mIndicatorView.getChildAt(index));
         }
     }

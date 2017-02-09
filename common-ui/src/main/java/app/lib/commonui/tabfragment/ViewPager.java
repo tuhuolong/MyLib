@@ -1,5 +1,5 @@
 
-package app.lib.commonui.tabpager;
+package app.lib.commonui.tabfragment;
 
 import android.content.Context;
 import android.util.AttributeSet;
