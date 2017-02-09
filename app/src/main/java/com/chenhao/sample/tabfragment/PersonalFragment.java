@@ -17,6 +17,7 @@ import app.lib.commonui.widget.TitleBar;
  */
 
 public class PersonalFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
