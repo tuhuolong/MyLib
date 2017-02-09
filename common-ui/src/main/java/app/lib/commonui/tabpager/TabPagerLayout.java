@@ -40,6 +40,10 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
         super(context, attrs);
     }
 
+    private static String makeFragmentName(int viewId, long id) {
+        return "android:switcher:" + viewId + ":" + id;
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -67,7 +71,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
 
                     @Override
                     public void onPageSelected(int position) {
-                        setCurrentView(position);
+                        setCurrentItem(position);
                     }
 
                     @Override
@@ -88,7 +92,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
             addTabView(i, pageTitle, pageIcon, pageTitleColor);
         }
         if (mCurrentView == null) {
-            setCurrentView(0);
+            setCurrentItem(0);
         } else {
             setCurrentView(mCurrentView);
         }
@@ -96,7 +100,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
 
     /**
      * 是否允许侧滑
-     * 
+     *
      * @param enabled
      */
     public void setPagingEnabled(boolean enabled) {
@@ -105,7 +109,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
 
     /**
      * 滑动动画
-     * 
+     *
      * @param smoothScroll
      */
     public void setSmoothScroll(boolean smoothScroll) {
@@ -114,7 +118,7 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
 
     /**
      * ViewPager边缘阴影
-     * 
+     *
      * @param overScrollMode
      */
     public void setPagerOverScrollMode(int overScrollMode) {
@@ -140,17 +144,17 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
         mIndicatorView.addView(view, lp);
     }
 
-    public int getCurrentItem() {
+    public int getCurrentIndex() {
         return mCurrentIndex;
     }
 
-    public void setCurrentView(int index) {
+    public void setCurrentItem(int index) {
         if (index >= 0 && index < mTabPagerAdapter.getCount()) {
             setCurrentView(mIndicatorView.getChildAt(index));
         }
     }
 
-    public void setCurrentView(View view) {
+    private void setCurrentView(View view) {
         if (view == mCurrentView)
             return;
         Object object = view.getTag();
@@ -172,12 +176,8 @@ public class TabPagerLayout extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public String getFragmentTag(int index) {
-        return String.valueOf(index);
-    }
-
     public Fragment getFragment(int index) {
-        String tag = getFragmentTag(index);
+        String tag = makeFragmentName(mViewPager.getId(), index);
         Fragment fragment = mFragmentManager.findFragmentByTag(tag);
         return fragment;
     }
