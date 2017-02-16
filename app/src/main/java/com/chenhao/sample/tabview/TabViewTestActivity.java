@@ -11,7 +11,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.chenhao.sample.R;
+import com.chenhao.sample.tabfragment.DetailFragment;
 import com.chenhao.sample.tabfragment.MainFragment;
+import com.chenhao.sample.tabfragment.PersonalFragment;
+import com.chenhao.sample.tabfragment.SettingFragment;
 
 import app.lib.common.util.DisplayUtil;
 import app.lib.commonui.tabview.PagerSlidingTabView;
@@ -23,14 +26,10 @@ import app.lib.commonui.tabview.PagerSlidingTabView;
 public class TabViewTestActivity extends FragmentActivity {
 
     private static final String[] TAB_TITLE = new String[] {
-            "AAA",
-            "BBB",
-            "CCC",
-            "DDD",
-            "EEE",
-            "FFF",
-            "GGG",
-            "HHH"
+            "Main",
+            "Detail",
+            "Personal",
+            "Setting"
     };
 
     PagerSlidingTabView mPagerSlidingTabView;
@@ -50,6 +49,7 @@ public class TabViewTestActivity extends FragmentActivity {
         mPagerSlidingTabView.setIndicatorHeight(10);
         mPagerSlidingTabView.setIndicatorColor(Color.parseColor("#b60909"));
         mPagerSlidingTabView.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
+        mPagerSlidingTabView.setSmoothScroll(false);
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(pagerAdapter);
@@ -68,6 +68,15 @@ public class TabViewTestActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
+            if (position == 0) {
+                return new MainFragment();
+            } else if (position == 1) {
+                return new DetailFragment();
+            } else if (position == 2) {
+                return new PersonalFragment();
+            } else if (position == 3) {
+                return new SettingFragment();
+            }
             return new MainFragment();
         }
 

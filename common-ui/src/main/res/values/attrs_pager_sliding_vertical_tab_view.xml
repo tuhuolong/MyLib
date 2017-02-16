@@ -6,9 +6,9 @@
         <attr name="psvtvVerticalUnderlineColor" format="color" />
         <attr name="psvtvVerticalDividerColor" format="color" />
         <attr name="psvtvVerticalIndicatorWidth" format="dimension" />
-        <attr name="psvtvVerticalUnderlineHeight" format="dimension" />
+        <attr name="psvtvVerticalUnderlineWidth" format="dimension" />
         <attr name="psvtvVerticalDividerPadding" format="dimension" />
-        <attr name="psvtvVerticalTabPaddingLeftRight" format="dimension" />
+        <attr name="psvtvVerticalTabPaddingTopBottom" format="dimension" />
         <attr name="psvtvVerticalScrollOffset" format="dimension" />
         <attr name="psvtvVerticalTabBackground" format="reference" />
         <attr name="psvtvVerticalShouldExpand" format="boolean" />

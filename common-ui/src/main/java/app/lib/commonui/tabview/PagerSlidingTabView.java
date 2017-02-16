@@ -69,6 +69,8 @@ public class PagerSlidingTabView extends HorizontalScrollView {
     private int tabBackgroundResId;// = R.drawable.pager_sliding_tab_strip_background_tab;
     private Locale locale;
 
+    private boolean smoothScroll = true;
+
     public PagerSlidingTabView(Context context) {
         this(context, null);
     }
@@ -236,7 +238,7 @@ public class PagerSlidingTabView extends HorizontalScrollView {
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                pager.setCurrentItem(position);
+                pager.setCurrentItem(position, smoothScroll);
             }
         });
 
@@ -493,6 +495,14 @@ public class PagerSlidingTabView extends HorizontalScrollView {
     public void setTabPaddingLeftRight(int paddingPx) {
         this.tabPadding = paddingPx;
         updateTabStyles();
+    }
+
+    public boolean getSmoothScroll() {
+        return this.smoothScroll;
+    }
+
+    public void setSmoothScroll(boolean smoothScroll) {
+        this.smoothScroll = smoothScroll;
     }
 
     @Override

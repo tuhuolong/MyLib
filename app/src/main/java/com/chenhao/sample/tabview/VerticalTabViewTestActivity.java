@@ -10,11 +10,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.chenhao.sample.R;
+import com.chenhao.sample.tabfragment.DetailFragment;
 import com.chenhao.sample.tabfragment.MainFragment;
+import com.chenhao.sample.tabfragment.PersonalFragment;
+import com.chenhao.sample.tabfragment.SettingFragment;
 
 import app.lib.common.util.DisplayUtil;
-import app.lib.commonui.viewpager.NoScrollViewPager;
 import app.lib.commonui.tabview.PagerSlidingVerticalTabView;
+import app.lib.commonui.viewpager.NoScrollViewPager;
 
 /**
  * Created by chenhao on 17/2/9.
@@ -23,14 +26,10 @@ import app.lib.commonui.tabview.PagerSlidingVerticalTabView;
 public class VerticalTabViewTestActivity extends FragmentActivity {
 
     private static final String[] TAB_TITLE = new String[] {
-            "AAA",
-            "BBB",
-            "CCC",
-            "DDD",
-            "EEE",
-            "FFF",
-            "GGG",
-            "HHH"
+            "Main",
+            "Detail",
+            "Personal",
+            "Setting"
     };
 
     PagerSlidingVerticalTabView mPagerSlidingVerticalTabView;
@@ -50,12 +49,15 @@ public class VerticalTabViewTestActivity extends FragmentActivity {
         mPagerSlidingVerticalTabView.setIndicatorWidth(10);
         mPagerSlidingVerticalTabView.setIndicatorColor(Color.parseColor("#b60909"));
         mPagerSlidingVerticalTabView.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
+        mPagerSlidingVerticalTabView.setSmoothScroll(false);
+        mPagerSlidingVerticalTabView.setAllCaps(false);
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mViewPager = (NoScrollViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(pagerAdapter);
         mPagerSlidingVerticalTabView.setViewPager(mViewPager);
 
         mViewPager.setScrollEnabled(true);
+
     }
 
     class PagerAdapter extends FragmentPagerAdapter {
@@ -70,6 +72,15 @@ public class VerticalTabViewTestActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
+            if (position == 0) {
+                return new MainFragment();
+            } else if (position == 1) {
+                return new DetailFragment();
+            } else if (position == 2) {
+                return new PersonalFragment();
+            } else if (position == 3) {
+                return new SettingFragment();
+            }
             return new MainFragment();
         }
 

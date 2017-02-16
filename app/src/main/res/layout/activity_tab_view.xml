@@ -16,12 +16,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <app.lib.commonui.tabview.PagerSlidingVerticalTabView
+        <app.lib.commonui.tabview.PagerSlidingTabView
             android:id="@+id/tab_view"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"></app.lib.commonui.tabview.PagerSlidingVerticalTabView>
+            android:layout_width="match_parent"
+            android:layout_height="40dp"></app.lib.commonui.tabview.PagerSlidingTabView>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"

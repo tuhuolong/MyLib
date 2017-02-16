@@ -56,7 +56,6 @@ public class PagerSlidingVerticalTabView extends ScrollView {
     private boolean textAllCaps = true;
     private int scrollOffset = 52;
     private int indicatorWidth = 8;
-    private int underlineHeight = 2;
     private int underlineWidth = 2;
     private int dividerPadding = 12;
     private int tabPadding = 24;
@@ -69,6 +68,8 @@ public class PagerSlidingVerticalTabView extends ScrollView {
     private int lastScrollX = 0;
     private int tabBackgroundResId;// = R.drawable.pager_sliding_tab_strip_background_tab;
     private Locale locale;
+
+    private boolean smoothScroll = true;
 
     public PagerSlidingVerticalTabView(Context context) {
         this(context, null);
@@ -96,8 +97,8 @@ public class PagerSlidingVerticalTabView extends ScrollView {
                 dm);
         indicatorWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 indicatorWidth, dm);
-        underlineHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                underlineHeight, dm);
+        underlineWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                underlineWidth, dm);
         dividerPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dividerPadding, dm);
         tabPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, tabPadding, dm);
@@ -129,14 +130,14 @@ public class PagerSlidingVerticalTabView extends ScrollView {
         indicatorWidth = a.getDimensionPixelSize(
                 R.styleable.PagerSlidingVerticalTabView_psvtvVerticalIndicatorWidth,
                 indicatorWidth);
-        underlineHeight = a.getDimensionPixelSize(
-                R.styleable.PagerSlidingVerticalTabView_psvtvVerticalUnderlineHeight,
-                underlineHeight);
+        underlineWidth = a.getDimensionPixelSize(
+                R.styleable.PagerSlidingVerticalTabView_psvtvVerticalUnderlineWidth,
+                underlineWidth);
         dividerPadding = a.getDimensionPixelSize(
                 R.styleable.PagerSlidingVerticalTabView_psvtvVerticalDividerPadding,
                 dividerPadding);
         tabPadding = a.getDimensionPixelSize(
-                R.styleable.PagerSlidingVerticalTabView_psvtvVerticalTabPaddingLeftRight,
+                R.styleable.PagerSlidingVerticalTabView_psvtvVerticalTabPaddingTopBottom,
                 tabPadding);
         tabBackgroundResId = a.getResourceId(
                 R.styleable.PagerSlidingVerticalTabView_psvtvVerticalTabBackground,
@@ -248,7 +249,7 @@ public class PagerSlidingVerticalTabView extends ScrollView {
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                pager.setCurrentItem(position);
+                pager.setCurrentItem(position, smoothScroll);
             }
         });
 
@@ -344,7 +345,7 @@ public class PagerSlidingVerticalTabView extends ScrollView {
 
         // draw underline
         rectPaint.setColor(underlineColor);
-        canvas.drawRect(width - underlineHeight, 0, width, tabsContainer.getHeight(), rectPaint);
+        canvas.drawRect(width - underlineWidth, 0, width, tabsContainer.getHeight(), rectPaint);
 
         // draw divider
         dividerPaint.setColor(dividerColor);
@@ -406,12 +407,12 @@ public class PagerSlidingVerticalTabView extends ScrollView {
         invalidate();
     }
 
-    public int getUnderlineHeight() {
-        return underlineHeight;
+    public int getUnderlineWidth() {
+        return underlineWidth;
     }
 
-    public void setUnderlineHeight(int underlineHeightPx) {
-        this.underlineHeight = underlineHeightPx;
+    public void setUnderlineWidth(int underlineWidthPx) {
+        this.underlineWidth = underlineWidthPx;
         invalidate();
     }
 
@@ -504,6 +505,14 @@ public class PagerSlidingVerticalTabView extends ScrollView {
     public void setTabPaddingLeftRight(int paddingPx) {
         this.tabPadding = paddingPx;
         updateTabStyles();
+    }
+
+    public boolean getSmoothScroll() {
+        return this.smoothScroll;
+    }
+
+    public void setSmoothScroll(boolean smoothScroll) {
+        this.smoothScroll = smoothScroll;
     }
 
     @Override
