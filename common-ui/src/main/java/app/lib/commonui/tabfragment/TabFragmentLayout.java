@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.lib.commonui.R;
+import app.lib.commonui.viewpager.NoScrollViewPager;
 
 /**
  * Created by chenhao on 17/2/8.
@@ -21,7 +22,7 @@ import app.lib.commonui.R;
 
 public class TabFragmentLayout extends LinearLayout implements View.OnClickListener {
 
-    ViewPager mViewPager;
+    NoScrollViewPager mViewPager;
     LinearLayout mIndicatorView;
     FragmentManager mFragmentManager;
     TabFragmentAdapter mTabFragmentAdapter;
@@ -47,7 +48,7 @@ public class TabFragmentLayout extends LinearLayout implements View.OnClickListe
     protected void onFinishInflate() {
         super.onFinishInflate();
         mLayoutInflater = LayoutInflater.from(getContext());
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mViewPager = (NoScrollViewPager) findViewById(R.id.view_pager);
         mIndicatorView = (LinearLayout) findViewById(R.id.indicator);
     }
 
@@ -103,7 +104,7 @@ public class TabFragmentLayout extends LinearLayout implements View.OnClickListe
      * @param enabled
      */
     public void setPagingEnabled(boolean enabled) {
-        mViewPager.setPagingEnabled(enabled);
+        mViewPager.setScrollEnabled(enabled);
     }
 
     /**

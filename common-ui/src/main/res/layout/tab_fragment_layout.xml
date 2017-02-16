@@ -6,11 +6,11 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <app.lib.commonui.tabfragment.ViewPager
+    <app.lib.commonui.viewpager.NoScrollViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></app.lib.commonui.tabfragment.ViewPager>
+        android:layout_weight="1"></app.lib.commonui.viewpager.NoScrollViewPager>
 
     <View
         android:layout_width="match_parent"

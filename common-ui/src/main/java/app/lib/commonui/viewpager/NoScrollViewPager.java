@@ -1,5 +1,5 @@
 
-package app.lib.commonui.tabfragment;
+package app.lib.commonui.viewpager;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,21 +11,21 @@ import android.view.MotionEvent;
  * 支持关闭侧滑 <br/>
  * <br/>
  */
-public class ViewPager extends android.support.v4.view.ViewPager {
+public class NoScrollViewPager extends android.support.v4.view.ViewPager {
 
-    private boolean mPagingEnabled = true;
+    private boolean mScrollEnabled = false;
 
-    public ViewPager(Context context) {
+    public NoScrollViewPager(Context context) {
         super(context);
     }
 
-    public ViewPager(Context context, AttributeSet attrs) {
+    public NoScrollViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (this.mPagingEnabled) {
+        if (this.mScrollEnabled) {
             return super.onTouchEvent(event);
         }
 
@@ -34,7 +34,7 @@ public class ViewPager extends android.support.v4.view.ViewPager {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (this.mPagingEnabled) {
+        if (this.mScrollEnabled) {
             return super.onInterceptTouchEvent(event);
         }
 
@@ -46,7 +46,7 @@ public class ViewPager extends android.support.v4.view.ViewPager {
      * 
      * @param enabled
      */
-    public void setPagingEnabled(boolean enabled) {
-        this.mPagingEnabled = enabled;
+    public void setScrollEnabled(boolean enabled) {
+        this.mScrollEnabled = enabled;
     }
 }

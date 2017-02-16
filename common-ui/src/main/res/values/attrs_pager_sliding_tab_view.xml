@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PagerSlidingTabView">
+        <attr name="pstvIndicatorColor" format="color" />
+        <attr name="pstvUnderlineColor" format="color" />
+        <attr name="pstvDividerColor" format="color" />
+        <attr name="pstvIndicatorHeight" format="dimension" />
+        <attr name="pstvUnderlineHeight" format="dimension" />
+        <attr name="pstvDividerPadding" format="dimension" />
+        <attr name="pstvTabPaddingLeftRight" format="dimension" />
+        <attr name="pstvScrollOffset" format="dimension" />
+        <attr name="pstvTabBackground" format="reference" />
+        <attr name="pstvShouldExpand" format="boolean" />
+        <attr name="pstvTextAllCaps" format="boolean" />
+    </declare-styleable>
+
+</resources>

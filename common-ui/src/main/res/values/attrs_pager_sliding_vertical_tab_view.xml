@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PagerSlidingVerticalTabView">
+        <attr name="psvtvVerticalIndicatorColor" format="color" />
+        <attr name="psvtvVerticalUnderlineColor" format="color" />
+        <attr name="psvtvVerticalDividerColor" format="color" />
+        <attr name="psvtvVerticalIndicatorWidth" format="dimension" />
+        <attr name="psvtvVerticalUnderlineHeight" format="dimension" />
+        <attr name="psvtvVerticalDividerPadding" format="dimension" />
+        <attr name="psvtvVerticalTabPaddingLeftRight" format="dimension" />
+        <attr name="psvtvVerticalScrollOffset" format="dimension" />
+        <attr name="psvtvVerticalTabBackground" format="reference" />
+        <attr name="psvtvVerticalShouldExpand" format="boolean" />
+        <attr name="psvtvVerticalTextAllCaps" format="boolean" />
+    </declare-styleable>
+
+</resources>

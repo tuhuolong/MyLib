@@ -8,19 +8,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 
 import com.chenhao.sample.R;
 import com.chenhao.sample.tabfragment.MainFragment;
 
 import app.lib.common.util.DisplayUtil;
-import app.lib.commonui.tabview.PagerSlidingTabView;
+import app.lib.commonui.viewpager.NoScrollViewPager;
+import app.lib.commonui.tabview.PagerSlidingVerticalTabView;
 
 /**
  * Created by chenhao on 17/2/9.
  */
 
-public class TabViewTestActivity extends FragmentActivity {
+public class VerticalTabViewTestActivity extends FragmentActivity {
 
     private static final String[] TAB_TITLE = new String[] {
             "AAA",
@@ -33,27 +33,29 @@ public class TabViewTestActivity extends FragmentActivity {
             "HHH"
     };
 
-    PagerSlidingTabView mPagerSlidingTabView;
-    ViewPager mViewPager;
+    PagerSlidingVerticalTabView mPagerSlidingVerticalTabView;
+    NoScrollViewPager mViewPager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_tab_view);
+        setContentView(R.layout.activity_vertical_tab_view);
 
-        mPagerSlidingTabView = (PagerSlidingTabView) findViewById(R.id.tab_view);
-        // mPagerSlidingTabView.setShouldExpand(true);
-        mPagerSlidingTabView.setDividerColor(0);
-        mPagerSlidingTabView.setSelectedTextColor(Color.parseColor("#b60909"));
-        mPagerSlidingTabView.setTextColor(Color.parseColor("#333333"));
-        mPagerSlidingTabView.setIndicatorHeight(10);
-        mPagerSlidingTabView.setIndicatorColor(Color.parseColor("#b60909"));
-        mPagerSlidingTabView.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
+        mPagerSlidingVerticalTabView = (PagerSlidingVerticalTabView) findViewById(R.id.tab_view);
+        // mPagerSlidingVerticalTabView.setShouldExpand(true);
+        mPagerSlidingVerticalTabView.setDividerColor(0);
+        mPagerSlidingVerticalTabView.setSelectedTextColor(Color.parseColor("#b60909"));
+        mPagerSlidingVerticalTabView.setTextColor(Color.parseColor("#333333"));
+        mPagerSlidingVerticalTabView.setIndicatorWidth(10);
+        mPagerSlidingVerticalTabView.setIndicatorColor(Color.parseColor("#b60909"));
+        mPagerSlidingVerticalTabView.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mViewPager = (NoScrollViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(pagerAdapter);
-        mPagerSlidingTabView.setViewPager(mViewPager);
+        mPagerSlidingVerticalTabView.setViewPager(mViewPager);
+
+        mViewPager.setScrollEnabled(true);
     }
 
     class PagerAdapter extends FragmentPagerAdapter {
