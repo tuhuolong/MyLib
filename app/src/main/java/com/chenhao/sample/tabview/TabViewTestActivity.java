@@ -14,8 +14,7 @@ import com.chenhao.sample.R;
 import com.chenhao.sample.tabfragment.MainFragment;
 
 import app.lib.common.util.DisplayUtil;
-import app.lib.commonui.tabview.HorizontalTabView;
-import app.lib.commonui.tabview.PagerSlidingTabStrip;
+import app.lib.commonui.tabview.PagerSlidingTabView;
 
 /**
  * Created by chenhao on 17/2/9.
@@ -34,9 +33,7 @@ public class TabViewTestActivity extends FragmentActivity {
             "HHH"
     };
 
-    HorizontalTabView mTabView;
-
-    PagerSlidingTabStrip mPagerSlidingTabStrip;
+    PagerSlidingTabView mPagerSlidingTabView;
     ViewPager mViewPager;
 
     @Override
@@ -45,18 +42,18 @@ public class TabViewTestActivity extends FragmentActivity {
 
         setContentView(R.layout.activity_tab_view);
 
-        mPagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tab_strp);
-        // mPagerSlidingTabStrip.setShouldExpand(true);
-        mPagerSlidingTabStrip.setDividerColor(0);
-        mPagerSlidingTabStrip.setSelectedTextColor(Color.parseColor("#b60909"));
-        mPagerSlidingTabStrip.setTextColor(Color.parseColor("#333333"));
-        mPagerSlidingTabStrip.setIndicatorHeight(10);
-        mPagerSlidingTabStrip.setIndicatorColor(Color.parseColor("#b60909"));
-        mPagerSlidingTabStrip.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
+        mPagerSlidingTabView = (PagerSlidingTabView) findViewById(R.id.tab_strp);
+        // mPagerSlidingTabView.setShouldExpand(true);
+        mPagerSlidingTabView.setDividerColor(0);
+        mPagerSlidingTabView.setSelectedTextColor(Color.parseColor("#b60909"));
+        mPagerSlidingTabView.setTextColor(Color.parseColor("#333333"));
+        mPagerSlidingTabView.setIndicatorHeight(10);
+        mPagerSlidingTabView.setIndicatorColor(Color.parseColor("#b60909"));
+        mPagerSlidingTabView.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(pagerAdapter);
-        mPagerSlidingTabStrip.setViewPager(mViewPager);
+        mPagerSlidingTabView.setViewPager(mViewPager);
     }
 
     class PagerAdapter extends FragmentPagerAdapter {
