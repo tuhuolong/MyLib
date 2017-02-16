@@ -13,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import com.chenhao.sample.R;
 import com.chenhao.sample.tabfragment.MainFragment;
 
+import app.lib.common.util.DisplayUtil;
 import app.lib.commonui.tabview.HorizontalTabView;
 import app.lib.commonui.tabview.PagerSlidingTabStrip;
 
@@ -47,12 +48,14 @@ public class TabViewTestActivity extends FragmentActivity {
         mPagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tab_strp);
         // mPagerSlidingTabStrip.setShouldExpand(true);
         mPagerSlidingTabStrip.setDividerColor(0);
+        mPagerSlidingTabStrip.setSelectedTextColor(Color.parseColor("#b60909"));
         mPagerSlidingTabStrip.setTextColor(Color.parseColor("#333333"));
         mPagerSlidingTabStrip.setIndicatorHeight(10);
         mPagerSlidingTabStrip.setIndicatorColor(Color.parseColor("#b60909"));
-        PagerAdapter adapter2 = new PagerAdapter(getSupportFragmentManager());
+        mPagerSlidingTabStrip.setTabPaddingLeftRight(DisplayUtil.dip2px(this, 10));
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mViewPager.setAdapter(adapter2);
+        mViewPager.setAdapter(pagerAdapter);
         mPagerSlidingTabStrip.setViewPager(mViewPager);
     }
 
