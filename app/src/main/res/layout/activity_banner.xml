@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.chenhao.sample.MainActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <FrameLayout
         android:id="@+id/banner_container"
         android:layout_width="match_parent"
-        android:layout_height="423dp">
+        android:layout_height="250dp">
 
         <app.lib.commonui.banner.BannerViewPager
-            android:id="@+id/banner_pager"
+            android:id="@+id/pager_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></app.lib.commonui.banner.BannerViewPager>
 
         <app.lib.commonui.banner.BannerPagerIndicator
-            android:id="@+id/banner_indicator"
+            android:id="@+id/indicator_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"></app.lib.commonui.banner.BannerPagerIndicator>
 
     </FrameLayout>
 
-</RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp">
+
+        <app.lib.commonui.banner.BannerViewPager
+            android:id="@+id/pager_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></app.lib.commonui.banner.BannerViewPager>
+
+
+        <app.lib.commonui.stickyball.widget.DotIndicatorView
+            android:id="@+id/indicator_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            app:color_selected="@color/class_L"
+            app:color_unselected="@color/black_10_transparent"
+            app:dot_center_distance="15dp"
+            app:dot_radius="3dp" />
+
+    </FrameLayout>
+
+</LinearLayout>
