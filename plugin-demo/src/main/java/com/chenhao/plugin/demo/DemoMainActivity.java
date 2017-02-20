@@ -8,6 +8,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import com.third.lib.ThirdLibMain;
+import com.third.lib2.ThirdLib2Main;
+
 import app.lib.plugin.sdk.activity.PluginBaseActivity;
 
 /**
@@ -16,6 +19,7 @@ import app.lib.plugin.sdk.activity.PluginBaseActivity;
 
 public class DemoMainActivity extends PluginBaseActivity {
 
+    TextView mTextView;
     WebView mWebView;
 
     @Override
@@ -26,11 +30,17 @@ public class DemoMainActivity extends PluginBaseActivity {
 
         ((TextView) findViewById(R.id.version)).setText(
                 getPluginContext().getPluginId() + ":" + getPluginContext().getVersionCode());
+
+        mTextView = (TextView) findViewById(R.id.text_view);
+
         mWebView = (WebView) findViewById(R.id.webview);
 
         initWebView();
 
         mWebView.loadUrl("https://www.baidu.com");
+
+        mTextView.setText("ThirdLibMain.add(2, 3):" + ThirdLibMain.add(2, 3)
+                + "\nThirdLib2Main.minus(2, 3):" + ThirdLib2Main.minus(2, 3));
     }
 
     void initWebView() {

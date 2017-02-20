@@ -62,4 +62,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     provided files(project.ext["PLUGIN_SDK_HOME"] + '/libs_ex/plugin-sdk.jar')
+    provided files(project.ext["PLUGIN_SDK_HOME"] + '/libs_ex/used-lib-1.jar')
+    provided files(project.ext["PLUGIN_SDK_HOME"] + '/libs_ex/used-lib-2.jar')
 }

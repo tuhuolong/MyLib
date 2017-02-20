@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+import com.third.lib.ThirdLibMain;
+import com.third.lib2.ThirdLib2Main;
+
 import app.lib.commonui.widget.TitleBar;
 import app.lib.plugin.frame.PluginApi;
 import app.lib.plugin.sdk.PluginMsgType;
@@ -24,6 +27,10 @@ public class PluginTestActivity extends FragmentActivity {
 
         mContext = this;
 
+        int result1 = ThirdLibMain.add(2, 3);
+
+        int result2 = ThirdLib2Main.minus(2, 3);
+
         setContentView(R.layout.activity_plugin_test);
 
         ((TitleBar) findViewById(R.id.title_bar)).setLeftClickListener(new View.OnClickListener() {
@@ -40,5 +47,6 @@ public class PluginTestActivity extends FragmentActivity {
                         new Bundle(), new PluginApi.SendMessageCallback());
             }
         });
+
     }
 }
