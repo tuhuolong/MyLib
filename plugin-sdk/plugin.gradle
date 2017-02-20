@@ -1,26 +1,7 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
-def jarName = 'plugin-sdk.jar'
-task clearPluginSdkJar(type: Delete) << {
-    delete "${project.buildDir}/../libs_ex/" + jarName
-}
-
-task copyPluginSdkJar() << {
-    copy {
-        from(project.ext["PLUGIN_SDK_HOME"] + "/build/intermediates/bundles/release/")
-        into(project.ext["PLUGIN_SDK_HOME"] + "/libs_ex/")
-        include('classes.jar')
-        rename('classes.jar', jarName)
-    }
-}
-
 project.afterEvaluate {
-    clearPluginSdkJar.dependsOn(':plugin-sdk:assembleRelease');
-    copyPluginSdkJar.dependsOn(clearPluginSdkJar);
-    preBuild.dependsOn(copyPluginSdkJar);
-
-
-    runPlugin.dependsOn(copyPluginSdkJar, ':' + project.ext["PLUGIN_MODULE_NAME"] + ':assembleDebug');
+    runPlugin.dependsOn(':' + project.ext["PLUGIN_MODULE_NAME"] + ':assembleDebug');
 }
 
 

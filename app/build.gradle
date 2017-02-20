@@ -33,6 +33,20 @@ dependencies {
     compile project(':common-ui')
 }
 
+def jarName = 'plugin-sdk.jar'
+task clearPluginSdkJar(type: Delete) << {
+    delete "${project.rootDir}/plugin-sdk/libs_ex/" + jarName
+}
+
+task copyPluginSdkJar() << {
+    copy {
+        from("${project.rootDir}/plugin-sdk/build/intermediates/bundles/release/")
+        into("${project.rootDir}/plugin-sdk/libs_ex/")
+        include('classes.jar')
+        rename('classes.jar', jarName)
+    }
+}
+
 task copyMainAppUsedJar() << {
     copy {
         from("libs/")
@@ -42,5 +56,8 @@ task copyMainAppUsedJar() << {
 }
 
 project.afterEvaluate {
-    preBuild.dependsOn(copyMainAppUsedJar);
+    clearPluginSdkJar.dependsOn(':plugin-sdk:assembleRelease');
+    copyPluginSdkJar.dependsOn(clearPluginSdkJar);
+
+    preBuild.dependsOn(copyPluginSdkJar, copyMainAppUsedJar);
 }
