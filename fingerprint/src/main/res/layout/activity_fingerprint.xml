@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <app.lib.commonui.widget.TitleBar
+        android:id="@+id/title_bar"
+        style="@style/TitleBar"
+        app:leftImage="@drawable/title_bar_left_back"></app.lib.commonui.widget.TitleBar>
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--<ImageView-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginBottom="32dp"-->
+            <!--android:layout_marginTop="32dp"-->
+            <!--android:contentDescription="@string/description_bugdroid_icon"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:src="@drawable/android_robot" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_price" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/item_description"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/purchase_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/holo_blue_dark"
+                android:text="@string/purchase"
+                android:textColor="?android:attr/textColorPrimaryInverse" />
+
+            <TextView
+                android:id="@+id/confirmation_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="@string/purchase_done"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/encrypted_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="@string/purchase_done"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

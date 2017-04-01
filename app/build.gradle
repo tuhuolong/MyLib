@@ -5,8 +5,8 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.chenhao.sample"
-        minSdkVersion 14
-        targetSdkVersion 19
+        minSdkVersion 23
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -31,6 +31,7 @@ dependencies {
     compile project(':asynccallback')
     compile project(':plugin-frame')
     compile project(':common-ui')
+    compile project(':fingerprint')
 }
 
 def jarName = 'plugin-sdk.jar'
