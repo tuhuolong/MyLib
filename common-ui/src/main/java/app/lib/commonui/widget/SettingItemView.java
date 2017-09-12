@@ -230,6 +230,7 @@ public class SettingItemView extends FrameLayout
         } else if (mType == 1) {// arrows
             mSwitchButton.setVisibility(View.GONE);
             mSettingsItemCheckbox.setVisibility(View.GONE);
+            mOnclickImageView.setVisibility(View.VISIBLE);
             mContainerView.setOnClickListener(this);
             mSelectImageView.setVisibility(GONE);
         } else if (mType == 2) {// switch
