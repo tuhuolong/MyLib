@@ -32,6 +32,7 @@ dependencies {
     compile project(':plugin-frame')
     compile project(':common-ui')
     compile project(':fingerprint')
+    compile project(':webview')
 }
 
 def jarName = 'plugin-sdk.jar'

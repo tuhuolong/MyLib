@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.lib.webview">
+
+    <application>
+        <activity android:name=".WebShellActivity" />
+    </application>
+
+</manifest>

@@ -1,4 +1,3 @@
-
 package com.chenhao.sample;
 
 import android.content.Context;
@@ -12,6 +11,7 @@ import com.chenhao.sample.tabfragmentnoslide.TabFragmentNoSlideTestActivity;
 import app.lib.commonui.dialog.ProgressDialog;
 import app.lib.plugin.frame.PluginApi;
 import app.lib.plugin.sdk.PluginMsgType;
+import app.lib.webview.WebShellActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 ProgressDialog dialog = new ProgressDialog(mContext);
                 dialog.setMessage("测试");
                 dialog.show();
+            }
+        });
+
+        findViewById(R.id.webview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, WebShellActivity.class);
+                startActivity(intent);
             }
         });
     }
